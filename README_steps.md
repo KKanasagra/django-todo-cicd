@@ -275,8 +275,6 @@ use above command to open the file and then add jenkins like this
 
 - The project is completed
 
-## Contact Me
 
-- If you still have any issue you can contact me on my twitter @codenameimmy
 
 

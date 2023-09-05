@@ -20,8 +20,6 @@ Before deploying the app on AWS, we will test run the app locally.
 ```bash
   git clone https://github.com/shreys7/django-todo.git
 ```
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/1.PNG)
-
 - Now we will create a virtual environment named env for the app so that it doesn't affect our system.
 
 ```bash
@@ -66,8 +64,6 @@ For Linux/MacOS/Git Bash
 ```
 - Once the server is hosted, head over to http://127.0.0.1:8000/todos to check the app is running.
 
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/2.png)
-
 ## step 2 : Create requirement file
 We will create a requirement file using the following command. It will add all the changes or dependencies we had to install because of error in this file and it will help us in Docker part.
 
@@ -79,11 +75,7 @@ We will create a requirement file using the following command. It will add all t
 
 - Create an EC2 instance and connect to it via SSH from your terminal
     
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/3.png)
-
 - After successfully connecting to the EC2 instnce, it will look something like this
-
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/4.png)
 
 - Now we are on EC2 instance. so create a new directory named DevOps_Project_1
 
@@ -102,8 +94,6 @@ We will create a requirement file using the following command. It will add all t
    git clone https://github.com/shreys7/django-todo.git
 ```
 
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/5.PNG)
-
 - Now change directory and move to the django-todo directory
 
 ```bash
@@ -118,11 +108,7 @@ We will create a requirement file using the following command. It will add all t
 
 find allowed host and enter your public IP or just enter '*' so that all Ip are allowed
 
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/9.PNG)
-
 - Also go to you EC2 dashoard > go to secuirity groups > edit inbound rules > add rule nd add rule as shown in screenshot to allow traffic from everywhere on mentioned port.
-
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/8.PNG)
 
 - Now go back to terminal and  Install docker on the EC2 instance
 
@@ -140,8 +126,6 @@ find allowed host and enter your public IP or just enter '*' so that all Ip are 
 
 - enter insert mode by pressing "i" and write the file as shown in the screenshot.
 
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/6.PNG)
-
 you can check and take the version of django from requirement.txt we created earlier.
 
 - press esc and use :wq and enter to save the file and exit vim.
@@ -158,13 +142,9 @@ you can check and take the version of django from requirement.txt we created ear
    sudo docker run -p 8001:8001 62761281ad8f
 ```
 
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/7.PNG)
-
 - Now go to your browser and copy your public IP and use it to check if the app is running as shown in screenshot
 
 enter your public IP:8001. example : 3.88.168.176:8001
-
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/10.PNG)
 
 ## step 5 : Install and setup jenkins on your EC2 instance
 
@@ -221,23 +201,15 @@ enter your public IP:8001. example : 3.88.168.176:8001
 
 - Now open Jenkins in browser by using public IP and port number
 
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/12.PNG)
-
 - Get the password from given location and paste it here
 
 ```bash
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/13.PNG)
-
 - Click install suggested plugin and go ahead ith the installation
 
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/14.PNG)
-
 - create and setup your admin user and your are done. You must be on the Jenkins homepage now
-
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/15.PNG)
 
 - Open your terminal and add jenkins to sudoers s shon in the screen shot so that when we build our job in jenkins it can have sudo access
 
@@ -245,8 +217,6 @@ enter your public IP:8001. example : 3.88.168.176:8001
    sudo visudo
 ```
 use above command to open the file and then add jenkins like this
-
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/20.PNG)
 
 ## Step 6 : create a GitHub repo for the project and push code from local to the repository
 
@@ -280,8 +250,6 @@ use above command to open the file and then add jenkins like this
 
 - Open your instance's jenkins and go to manage jenkins > configure sytsem > find github servers here and add your github credentials
 
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/16.PNG)
-
 - save it. 
 
 ## Step 8 : Deploy the app using Jenkins now
@@ -290,11 +258,7 @@ use above command to open the file and then add jenkins like this
 
 - Then in source code management choose git. And paste your repositpory url there.
 
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/17.PNG)
-
 - And in branches to build, write develop as we have pushed our code to the develop branch.
-
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/18.PNG)
 
 - Now in build step. Add build step as eecute shell and write the following commands.
 
@@ -303,16 +267,13 @@ use above command to open the file and then add jenkins like this
    sudo docker run -p 8001:8001 -d todo-app
 ```
 
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/19.PNG)
-
 - save it and click on build now to run the job.
 
 - It worked successfully. No you can check in other tab with public IP and port number if the app is running.
 
 
-![](https://github.com/imran1509/DevOps-Project-1/blob/main/Screenshots/21.PNG)
 
-- woohoo. congrats your app is running and you have successfully completed this project.
+- The project is completed
 
 ## Contact Me
 
